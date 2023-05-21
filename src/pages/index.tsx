@@ -8,7 +8,7 @@ import { Link } from "@chakra-ui/next-js";
 const IndexPage: NextPage = () => {
   return (
     <div className={styles.container}>
-      To Homepage <Link href="/home">Home</Link>
+      To Homepage <Link href="/jobList">일자리 정보 보기</Link>
     </div>
   );
 };
