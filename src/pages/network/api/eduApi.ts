@@ -1,11 +1,21 @@
 import { apiClient } from "../apiClient";
 
-const serviceType = "TBordCont5";
+export const eduServiceCode = "TBordCont5";
 
-export const requestEduPrograms = async () => {
-  try {
-    return (await apiClient.get(`/${serviceType}/1/5`)).data;
-  } catch (error) {
-    console.error(error);
-  }
+type EduProgram = {
+  TITL_NM: string;
+  CONT: string;
+  REG_DT: string;
+};
+export interface EduResponse {
+  statusCode: number;
+  data: { TBordCont5: {row:EduProgram[]} };
+}
+
+export const requestEduPrograms = async (): Promise<EduResponse> => {
+  return await apiClient.get(`/${eduServiceCode}/1/5`);
+  // } catch (error) {
+  //   console.error(error);
+  //   return Error("error");
+  // }
 };
