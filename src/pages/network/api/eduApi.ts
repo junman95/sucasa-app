@@ -9,7 +9,7 @@ export interface EduResponse {
 }
 
 export const requestEduPrograms = async (): Promise<EduResponse> => {
-  return await apiClient.get(`/${eduServiceCode}/1/5`);
+  return await apiClient.get(`/${eduServiceCode}/1/100`);
   // } catch (error) {
   //   console.error(error);
   //   return Error("error");

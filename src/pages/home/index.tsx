@@ -16,7 +16,6 @@ const Home = () => {
     };
     getData();
   }, []);
-  console.log(data);
   return (
     <div>
       <TableCard>
