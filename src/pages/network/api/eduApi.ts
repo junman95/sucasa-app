@@ -1,15 +1,11 @@
+import { EduProgram } from "../../../features/eduTable/type";
 import { apiClient } from "../apiClient";
 
 export const eduServiceCode = "TBordCont5";
 
-type EduProgram = {
-  TITL_NM: string;
-  CONT: string;
-  REG_DT: string;
-};
 export interface EduResponse {
   statusCode: number;
-  data: { TBordCont5: {row:EduProgram[]} };
+  data: { TBordCont5: { row: EduProgram[] } };
 }
 
 export const requestEduPrograms = async (): Promise<EduResponse> => {

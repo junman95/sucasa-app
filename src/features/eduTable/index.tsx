@@ -10,7 +10,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import React from "react";
-import { EduProgram } from "../../pages/network/api/eduApi";
+import { EduProgram } from "./type";
 
 type Props = {
   data: EduProgram[];

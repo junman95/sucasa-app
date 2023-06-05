@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  requestEduPrograms,
-  eduServiceCode,
-  EduProgram,
-} from "../network/api/eduApi";
+import { requestEduPrograms, eduServiceCode } from "../network/api/eduApi";
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
+import { EduProgram } from "../../features/eduTable/type";
 
 type Props = {};
 
@@ -23,7 +20,7 @@ const Home = () => {
   return (
     <div>
       <TableCard>
-        <EduTable data={data}/>
+        <EduTable data={data} />
       </TableCard>
     </div>
   );

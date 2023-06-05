@@ -8,7 +8,7 @@ type Props = {
 const TableCard = ({ children }: Props) => {
   const [date, setDate] = useState(new Date().toLocaleTimeString());
   return (
-    <Card w={'40%'} margin={'10px'}>
+    <Card w={'50%'} margin={'10px'}>
       <CardHeader>
         <Heading>금일 {date} 기준 집계된 결과입니다. </Heading>
       </CardHeader>
