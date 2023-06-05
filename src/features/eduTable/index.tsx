@@ -1,42 +1,57 @@
+import React, { useState } from "react";
 import {
+  Modal,
+  ModalContent,
   Table,
-  TableCaption,
-  TableContainer,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+import { useAppSelector } from "../../hooks";
 import { EduProgram } from "./type";
+import store from "../../store";
+import { setSelectedProgram } from "./eduSlice";
+import ContentModal from "../../components/common/ContentModal";
 
-type Props = {
-  data: EduProgram[];
-};
+const RecruitTable = () => {
+  const [showContent, setShowContent] = useState(false);
+  const data = useAppSelector((state) => state.edu.programs);
+  const onClickSelectProgram = (idx: number) => {
+    store.dispatch(setSelectedProgram(idx));
+    setShowContent(true);
+  };
 
-const RecruitTable = ({ data }: Props) => {
+  console.log(showContent);
+
   return (
-    <Table>
-      <Thead>
-        <Tr>
-          <Th>교육 공고</Th>
-          <Th>내용</Th>
-          <Th>등록일</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {data &&
-          data.map((item: any) => (
-            <Tr>
-              <Td>{item.TITL_NM}</Td>
-              <Td>{item.CONT}</Td>
-              <Td>{item.REG_DT}</Td>
-            </Tr>
-          ))}
-      </Tbody>
-    </Table>
+    <div>
+      <ContentModal showContent={showContent} setShowContent={setShowContent} />
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>교육 공고</Th>
+            <Th>내용</Th>
+            <Th>등록일</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {data &&
+            data.map((item: EduProgram, idx) => (
+              <Tr key={idx}>
+                <Td width={"60%"}>{item.TITL_NM}</Td>
+                <Td width={"20%"}>
+                  <div onClick={() => onClickSelectProgram(idx)}>
+                    눌러주세요
+                  </div>
+                </Td>
+                <Td width={"20%"}>{item.REG_DT}</Td>
+              </Tr>
+            ))}
+        </Tbody>
+      </Table>
+    </div>
   );
 };
 

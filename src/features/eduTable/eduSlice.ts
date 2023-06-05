@@ -14,7 +14,7 @@ const initialState: EduProgramState = {
 };
 
 export const counterSlice = createSlice({
-  name: "counter",
+  name: "edu",
   initialState,
   reducers: {
     setPrograms: (state, action: PayloadAction<EduProgram[]>) => {

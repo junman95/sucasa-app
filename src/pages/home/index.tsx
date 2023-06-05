@@ -3,23 +3,23 @@ import { requestEduPrograms, eduServiceCode } from "../network/api/eduApi";
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
 import { EduProgram } from "../../features/eduTable/type";
-
-type Props = {};
+import store from "../../store";
+import { setPrograms } from "../../features/eduTable/eduSlice";
 
 const Home = () => {
-  const [data, setData] = useState<EduProgram[]>([]);
   useEffect(() => {
     const getData = async () => {
       const response = await requestEduPrograms();
-      console.log(response.data[eduServiceCode].row);
-      setData(response.data[eduServiceCode].row as EduProgram[]);
+      store.dispatch(
+        setPrograms(response.data[eduServiceCode].row as EduProgram[])
+      );
     };
     getData();
   }, []);
   return (
     <div>
       <TableCard>
-        <EduTable data={data} />
+        <EduTable/>
       </TableCard>
     </div>
   );
