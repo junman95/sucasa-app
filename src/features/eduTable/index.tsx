@@ -15,15 +15,13 @@ import store from "../../store";
 import { setSelectedProgram } from "./eduSlice";
 import ContentModal from "../../components/common/ContentModal";
 
-const RecruitTable = () => {
+const EduTable = () => {
   const [showContent, setShowContent] = useState(false);
   const data = useAppSelector((state) => state.edu.programs);
   const onClickSelectProgram = (idx: number) => {
     store.dispatch(setSelectedProgram(idx));
     setShowContent(true);
   };
-
-  console.log(showContent);
 
   return (
     <div>
@@ -55,4 +53,4 @@ const RecruitTable = () => {
   );
 };
 
-export default RecruitTable;
+export default EduTable;
