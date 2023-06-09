@@ -1,3 +1,4 @@
+'use client'
 import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 

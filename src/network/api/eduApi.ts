@@ -13,8 +13,9 @@ export interface EduData {
 
 export const requestEduPrograms = async (): Promise<EduData> => {
   const res = await fetch(`${baseUrl}/${eduServiceCode}/1/100`, {
-    next: { revalidate: 10 },
+    next: { revalidate: 60 * 60 * 24 },
   });
+  console.log(res);
 
   if (!res.ok) {
     throw new Error("error");

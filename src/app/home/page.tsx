@@ -1,9 +1,9 @@
-"use client";
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
 import store from "../../store";
 import { setPrograms } from "../../features/eduTable/eduSlice";
 import { EduProgram } from "../../features/eduTable/type";
+import { requestEduPrograms } from "../../network/api/eduApi";
 
 const urlPath = process.env.NEXT_PUBLIC_API_URL;
 const dataType = "json";
@@ -15,29 +15,21 @@ export interface EduData {
   row: EduProgram[];
 }
 
-export const requestEduPrograms = async (): Promise<EduData> => {
-  const res = await fetch(`${baseUrl}/${eduServiceCode}/1/100`, {
-    next: { revalidate: 10 },
-  });
-
-  if (!res.ok) {
-    throw new Error("error");
-  }
-
-  return await res.json().then((data) => data[eduServiceCode]);
+const getData = async () => {
+  const response = await requestEduPrograms();
+  return response.row;
 };
 
-const home = async () => {
-  const data = await requestEduPrograms();
-  store.dispatch(setPrograms(data.row));
-  console.log(data);
+const Home = async () => {
+  const data = await getData();
+
   return (
     <div>
       <TableCard>
-        <EduTable />
+        <EduTable data={data} />
       </TableCard>
     </div>
   );
 };
 
-export default home;
+export default Home;
