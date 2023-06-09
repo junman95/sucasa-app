@@ -3,3 +3,4 @@ export type EduProgram = {
   CONT: string;
   REG_DT: string;
 };
+
