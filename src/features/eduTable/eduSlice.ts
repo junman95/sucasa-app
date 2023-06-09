@@ -13,7 +13,7 @@ const initialState: EduProgramState = {
   programCount: 0,
 };
 
-export const counterSlice = createSlice({
+export const eduSlice = createSlice({
   name: "edu",
   initialState,
   reducers: {
@@ -27,6 +27,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setPrograms, setSelectedProgram } = counterSlice.actions;
+export const { setPrograms, setSelectedProgram } = eduSlice.actions;
 
-export default counterSlice.reducer;
+export default eduSlice.reducer;

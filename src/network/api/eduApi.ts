@@ -1,4 +1,4 @@
-import { EduProgram } from "../../../features/eduTable/type";
+import { EduProgram } from "../../features/eduTable/type";
 import { apiClient } from "../apiClient";
 
 export const eduServiceCode = "TBordCont5";
