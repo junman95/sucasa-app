@@ -1,8 +1,3 @@
-const Dotenv = require("dotenv-webpack");
+const nextTranslate = require("next-translate-plugin");
 
-module.exports = {
-  webpack: (config) => {
-    config.plugins.push(new Dotenv({ silent: true }));
-    return config;
-  },
-};
+module.exports = nextTranslate({ experimental: { appDir: true } })
