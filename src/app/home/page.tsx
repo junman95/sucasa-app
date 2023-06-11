@@ -1,12 +1,6 @@
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
-import { EduProgram } from "../../features/eduTable/type";
 import { requestEduPrograms } from "../../network/api/eduApi";
-
-
-export interface EduData {
-  row: EduProgram[];
-}
 
 const getData = async () => {
   const response = await requestEduPrograms();
