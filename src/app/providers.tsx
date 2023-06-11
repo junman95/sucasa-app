@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function RootLayout({ children }: Props) {
+export default function Providers({ children }: Props) {
   return (
     <ChakraProvider>
       <Provider store={store}>{children}</Provider>
