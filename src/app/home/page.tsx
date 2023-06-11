@@ -1,15 +1,8 @@
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
-import store from "../../store";
-import { setPrograms } from "../../features/eduTable/eduSlice";
 import { EduProgram } from "../../features/eduTable/type";
 import { requestEduPrograms } from "../../network/api/eduApi";
 
-const urlPath = process.env.NEXT_PUBLIC_API_URL;
-const dataType = "json";
-const baseUrl = urlPath + "/" + dataType;
-
-export const eduServiceCode = "TBordCont5";
 
 export interface EduData {
   row: EduProgram[];
