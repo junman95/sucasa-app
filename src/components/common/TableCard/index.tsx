@@ -1,6 +1,6 @@
 "use client";
+import React from "react";
 import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
 
 type Props = {
   title: string;
@@ -8,16 +8,20 @@ type Props = {
 };
 
 const TableCard = ({ title, children }: Props) => {
-  const [date, setDate] = useState("");
-  useEffect(() => {
-    setDate(new Date().toLocaleTimeString());
-  }, []);
   return (
-    <Card w={"50%"} margin={"10px"}>
-      <CardHeader>
+    <Card w={"40%"} h={"97vh"} margin={"10px"} overflow={"hidden"}>
+      <CardHeader
+        width={"100%"}
+        pos={"absolute"}
+        bgColor={"telegram.100"}
+        boxShadow={"md"}
+        
+      >
         <Heading>{title}</Heading>
       </CardHeader>
-      <CardBody>{children}</CardBody>
+      <CardBody h={"100%"} marginTop={"8%"} overflow={"scroll"}>
+        {children}
+      </CardBody>
     </Card>
   );
 };

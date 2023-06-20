@@ -3,7 +3,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
@@ -19,12 +18,16 @@ type Props = {
 const index = ({ showContent, setShowContent }: Props) => {
   const program = useAppSelector((state) => state.edu.selectedProgram);
   return (
-    <Modal isOpen={showContent} onClose={() => setShowContent(false)} size={"5xl"}>
+    <Modal
+      isOpen={showContent}
+      onClose={() => setShowContent(false)}
+      size={"5xl"}
+    >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent h={"85%"} overflow={"scroll"} padding={"1%"}>
         <ModalHeader>{program?.TITL_NM}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody display={"flex"} justifyContent={"center"}>
           <HtmlContent content={program ? program.CONT : ""} />
         </ModalBody>
       </ModalContent>
