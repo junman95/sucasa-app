@@ -6,9 +6,9 @@ import useTranslation from "next-translate/useTranslation";
 import Background from "../components/common/Background";
 import Title from "../components/common/Title";
 import Body from "../components/Main/Body";
-import LanguageBox from "../components/Main/LanguageBox";
 import { Actor } from "next/font/google";
 import ToHomeButton from "../components/Main/ToHomeButton";
+import LanguageButton from "../components/Main/LanguageButton";
 
 const inter = Actor({ weight: "400", subsets: ["latin"] });
 
@@ -19,23 +19,23 @@ const IndexPage: NextPage = () => {
       <Background url="/images/seoul_wide.jpg">
         <Body>
           <Title title={t("title")} subtitle={t("description")} />
-          <LanguageBox>
+          <LanguageButton>
             <Link href="/?lang=en" as="/en">
               English
             </Link>
-          </LanguageBox>
+          </LanguageButton>
 
-          <LanguageBox>
+          <LanguageButton>
             <Link href="/?lang=ko" as="/ko">
               한국어
             </Link>
-          </LanguageBox>
+          </LanguageButton>
 
-          <LanguageBox>
+          <LanguageButton>
             <Link href="/?lang=cn" as="/cn">
               中文
             </Link>
-          </LanguageBox>
+          </LanguageButton>
           <ToHomeButton>
             <Link href={`/home?lang=${lang}`} as={`/${lang}/home`}>
               {t("ToHome")}
