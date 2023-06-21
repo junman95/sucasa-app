@@ -2,7 +2,8 @@ import useTranslation from "next-translate/useTranslation";
 import TableCard from "../../components/common/TableCard";
 import EduTable from "../../features/eduTable";
 import { requestEduPrograms } from "../../network/api/eduApi";
-import styles from './Home.module.css'
+import styles from "./Home.module.css";
+import MarketTable from "../../features/marketTable";
 
 const getData = async () => {
   const response = await requestEduPrograms();
@@ -19,7 +20,7 @@ const Home = async () => {
         <EduTable data={data} />
       </TableCard>
       <TableCard title={t("market_title")}>
-        <EduTable data={data} />
+        <MarketTable data={data} />
       </TableCard>
     </div>
   );

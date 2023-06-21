@@ -1,17 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Button, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { EduProgram } from "./type";
 import store from "../../store";
-import { setPrograms, setSelectedProgram } from "./eduSlice";
+import { setSelectedProgram } from "./marketSlice";
 import ContentModal from "../../components/common/ContentModal";
 import useTranslation from "next-translate/useTranslation";
 
@@ -19,12 +11,9 @@ type EduProps = {
   data: EduProgram[];
 };
 
-const EduTable = ({ data }: EduProps) => {
+const MarketTable = ({ data }: EduProps) => {
   const { t } = useTranslation("market");
   const [showContent, setShowContent] = useState(false);
-  useEffect(() => {
-    store.dispatch(setPrograms(data));
-  }, [data]);
 
   const onClickSelectProgram = (idx: number) => {
     store.dispatch(setSelectedProgram(idx));
@@ -61,4 +50,4 @@ const EduTable = ({ data }: EduProps) => {
   );
 };
 
-export default EduTable;
+export default MarketTable;
